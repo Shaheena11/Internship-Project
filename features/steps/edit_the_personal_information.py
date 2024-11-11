@@ -5,8 +5,10 @@ from time import sleep
 
 @given('Open the main page https://soft.reelly.io')
 def open_reelly(context):
-    context.driver.get('https://soft.reelly.io')
+    # context.driver.get('https://soft.reelly.io')
+    context.app.main_page.open_main_page()
     sleep(3)
+
 
 @when('Log in to the page')
 def log_in_page(context):
@@ -26,9 +28,7 @@ def click_edit_profile(context):
 
 @then('some test information in the input fields')
 def test_inputs(context):
-    context.driver.find_element(By.ID,'Company-name').clear()
-    context.driver.find_element(By.ID, 'Company-name').send_keys('Test_1')
-    sleep(2)
+    context.app.edit_profile.test_inputs()
 
 @then('Check the right information is present in the input fields')
 def check_inputs(context):
