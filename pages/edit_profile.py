@@ -7,7 +7,9 @@ class EditProfile(Page):
     COMPANY_NAME = (By.CSS_SELECTOR, '[wized="companyInputProfile"]')
 
     def test_inputs(self):
-        sleep(5)
-        self.find_element(*self.COMPANY_NAME).clear()
-        self.find_element(*self.COMPANY_NAME).send_keys('Test_1')
+        self.wait_for_element_to_appear(*self.COMPANY_NAME)
+        company_name_field = self.driver.find_element(*self.COMPANY_NAME)
+        company_name_field.clear()
+        company_name_field.send_keys('Test_1')
         sleep(2)
+

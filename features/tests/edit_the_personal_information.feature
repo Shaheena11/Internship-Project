@@ -8,5 +8,5 @@ Feature: Edit personal information from the settings
     And Click on settings option
     And Click on Edit profile option
     Then some test information in the input fields
-#    And Check the right information is present in the input fields
-#    Then Check “Close” and “Save Changes” buttons are available and clickable
+    And Check the right information is present in the input fields
+    Then Check “Close” and “Save Changes” buttons are available and clickable
