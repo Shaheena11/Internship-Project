@@ -17,31 +17,31 @@ def browser_init(context, scenario_name):
 
 
     ## FireFox ##
-    driver_path = GeckoDriverManager().install()
-    service = Service(driver_path)
-    context.driver = webdriver.Firefox(service=service)
+    # driver_path = GeckoDriverManager().install()
+    # service = Service(driver_path)
+    # context.driver = webdriver.Firefox(service=service)
 
     ## Headless Mode ##
-    options = webdriver.ChromeOptions()
-    options.add_argument('headless')
-    service = Service(ChromeDriverManager().install())
-    context.driver = webdriver.Chrome(
-        options=options,
-        service=service
-    )
+    # options = webdriver.ChromeOptions()
+    # options.add_argument('headless')
+    # service = Service(ChromeDriverManager().install())
+    # context.driver = webdriver.Chrome(
+    #     options=options,
+    #     service=service
+    # )
 
     ## Browser Stalk ##
-    # bs_user = 'shaheenasultana_j0c9Wr'
-    # bs_key = 'KqQz1zsbs9q9DxTjxp5q'
-    # url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
-    #
-    # options = Options()
-    # bstack_options = {
-    #     "os": "Windows",
-    #     "osVersion": "11",
-    #     'browserName': 'chrome',
-    #     'sessionName': scenario_name
-    # }
+    bs_user = 'shaheenasultana_j0c9Wr'
+    bs_key = 'KqQz1zsbs9q9DxTjxp5q'
+    url = f'http://{bs_user}:{bs_key}@hub-cloud.browserstack.com/wd/hub'
+
+    options = Options()
+    bstack_options = {
+        "os": "Windows",
+        "osVersion": "11",
+        'browserName': 'chrome',
+        'sessionName': scenario_name
+    }
     options.set_capability('bstack:options', bstack_options)
     context.driver = webdriver.Remote(command_executor=url, options=options)
 
