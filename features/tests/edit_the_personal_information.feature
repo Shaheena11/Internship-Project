@@ -1,8 +1,8 @@
 # Created by Shaheena at 11/8/24
+
 Feature: Edit personal information from the settings
 
   Scenario: User can go to settings and edit the personal information
-
     Given Open the main page https://soft.reelly.io
     When Log in to the page
     And Click on settings option
