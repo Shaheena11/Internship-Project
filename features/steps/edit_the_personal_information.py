@@ -14,6 +14,16 @@ def open_reelly(context):
 def log_in_page(context):
     context.app.login_page.login_page()
 
+@when('Click on Main Menu')
+def click_on_Main_Menu(context):
+    context.app.main_page.click_on_Main_Menu()
+
+@when('Click Profile icon')
+def click_on_Profile_icon(context):
+    context.app.main_page.click_on_Profile_icon()
+
+
+
 @when('Click on settings option')
 def click_settings(context):
     context.app.settings_file_page.click_settings()

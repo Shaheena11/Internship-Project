@@ -5,9 +5,10 @@ from time import sleep
 
 class EditProfile(Page):
     COMPANY_NAME = (By.CSS_SELECTOR, '[wized="companyInputProfile"]')
+    EDIT_PROFILE = (By.CSS_SELECTOR, "a[href='/profile-edit']")
 
-    def click_edit_profile(context):
-        context.driver.find_element(By.CSS_SELECTOR, "a[href='/profile-edit']").click()
+    def click_edit_profile(self):
+        self.wait_and_click(*self.EDIT_PROFILE)
         sleep(5)
 
     def test_inputs(self):
@@ -23,4 +24,6 @@ class EditProfile(Page):
         assert expected_result in actual_result, f"Expected {expected_result}, got actual {actual_result}"
 
     def check_and_save_buttons(context):
-        context.driver.find_element(By.CSS_SELECTOR,"div[class='save-changes-button']").click()
+        sleep(10)
+        # context.driver.find_element(By.CSS_SELECTOR,"div[class='save-changes-button']").click()
+        context.driver.find_element(By.CSS_SELECTOR, "div[class='save-changes-button']")
